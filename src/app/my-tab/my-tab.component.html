@@ -1,0 +1,77 @@
+<div>
+  <h1>{{ 'tab_header' | skyAppResources }}</h1>
+
+  <p>
+    The SKY Add-in framework supports the capture of entry form events. The values below should be updated as the gift
+    entry form is modified.
+  </p>
+
+  <sky-definition-list *ngIf="!!environmentId" labelWidth="200px">
+    <sky-definition-list-heading>
+      Add-in context
+    </sky-definition-list-heading>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Environment id
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{environmentId}}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+  </sky-definition-list>
+
+  <sky-definition-list *ngIf="!!formData" labelWidth="200px">
+    <sky-definition-list-heading>
+      Form data
+    </sky-definition-list-heading>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Constituent id
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{formData.constituent_id}}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Constituent name
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{formData.constituent_name}}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Gift amount
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{ formData.gift_amount | skyNumeric: { format: 'currency' } }}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Gift date
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{formData.gift_date | skyDate }}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Gift type
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{formData.gift_type}}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+    <sky-definition-list-content>
+      <sky-definition-list-label>
+        Payment method
+      </sky-definition-list-label>
+      <sky-definition-list-value>
+        {{formData.payment_method}}
+      </sky-definition-list-value>
+    </sky-definition-list-content>
+  </sky-definition-list>
+
+</div>
