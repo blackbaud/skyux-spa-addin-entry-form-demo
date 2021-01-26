@@ -17,7 +17,8 @@ import {
 } from 'rxjs';
 
 import {
-  takeUntil
+  takeUntil,
+  finalize
 } from 'rxjs/operators';
 
 import {
@@ -56,7 +57,20 @@ export class MyTabComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
+    // initialization of the add in client
+    this.initializeAddInClient();
 
+    // capture the update events triggered from the gift form through the add in client
+    this.captureGiftFormUpdateEvent();
+
+    // capture the cancel event triggered from the gift form through the add in client
+    this.captureGiftFormCancelEvent();
+
+    // capture the save event triggered from the gift form through the add in client
+    this.captureGiftFormSaveEvent();
+  }
+
+  private initializeAddInClient(): void {
     // subscribe to the the add in args
     this.addinClientService.args.pipe(
       takeUntil(this.destroy)
@@ -69,7 +83,9 @@ export class MyTabComponent implements OnInit, OnDestroy {
         title: `My entry form Add-in tab`
       });
     });
+  }
 
+  private captureGiftFormUpdateEvent(): void {
     // add event for the form data being updated
     this.addinClientService.addEventHandler('form-data-update').addinEvent.pipe(
       takeUntil(this.destroy)
@@ -79,7 +95,28 @@ export class MyTabComponent implements OnInit, OnDestroy {
       // store the giving form data for display
       this.formData = addinEvent.context as GiftFormData;
     });
+  }
 
+  private captureGiftFormCancelEvent(): void {
+    // add the event handler for the gift form being canceled
+    this.addinClientService.addEventHandler('form-cancel').addinEvent.pipe(
+      takeUntil(this.destroy)
+    ).subscribe(addinEvent => {
+      console.log('client received form-cancel event');
+
+      // mock calling a service to save the information about the cancel
+      this.entryFormService.logCancel().pipe(
+        finalize(() => {
+          // always be sure to call done on this event to make sure the entry form is not blocked
+          addinEvent.done();
+        })
+      ).subscribe(() => {
+        console.log('client logged cancel successfully!');
+      });
+    });
+  }
+
+  private captureGiftFormSaveEvent(): void {
     // add the event for the gift form being saved
     this.addinClientService.addEventHandler('form-save').addinEvent.pipe(
       takeUntil(this.destroy)
@@ -90,26 +127,13 @@ export class MyTabComponent implements OnInit, OnDestroy {
       this.saveData = addinEvent.context;
 
       // mock calling a service to save the information
-      this.entryFormService.saveRecord(this.saveData, this.formData).subscribe(() => {
+      this.entryFormService.saveRecord(this.saveData, this.formData).pipe(
+        finalize(() => {
+          // always be sure to call done on this event to make sure the entry form is not blocked
+          addinEvent.done();
+        })
+      ).subscribe(() => {
         console.log('client save form data successfully!');
-
-        // we need to let the parent modal know that we are done and it can close
-        addinEvent.done();
-      });
-    });
-
-    // add the event handler for the gift form being canceled
-    this.addinClientService.addEventHandler('form-cancel').addinEvent.pipe(
-      takeUntil(this.destroy)
-    ).subscribe(addinEvent => {
-      console.log('client received form-cancel event');
-
-      // mock calling a service to save the information about the cancel
-      this.entryFormService.logCancel().subscribe(() => {
-        console.log('client logged cancel successfully!');
-
-        // we need to let the parent modal know that we are done and it can close
-        addinEvent.done();
       });
     });
   }
