@@ -1,8 +1,6 @@
 # skyux-spa-addin-entry-form-demo
 
-This SPA demonstrates a SKY Add-in implementation using SKY UX, and includes a tile that can be shown on any page as well as an example
-of showing entry forms (both within the same SPA as well as a separate web application).
-
+This SPA demonstrates a SKY Add-in implementation using SKY UX. The example uses the Razor's Edge Gift Entry form and side loads a vertical add-in tab in the same modal dialog tabset.
 This code is running live at https://host.nxt.blackbaud.com/addin-entry-form-demo.
 
 For more information on Blackbaud's SKY Add-in framework, see https://developer.blackbaud.com/skyapi/docs/addins.
