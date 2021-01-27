@@ -60,13 +60,13 @@ export class MyTabComponent implements OnInit, OnDestroy {
     // initialization of the add in client
     this.initializeAddInClient();
 
-    // capture the update events triggered from the gift form through the add in client
+    // handle the update events triggered from the gift form through the add in client
     this.handleGiftFormUpdateEvent();
 
-    // capture the cancel event triggered from the gift form through the add in client
+    // handle the cancel event triggered from the gift form through the add in client
     this.handleGiftFormCancelEvent();
 
-    // capture the save event triggered from the gift form through the add in client
+    // handle the save event triggered from the gift form through the add in client
     this.handleGiftFormSaveEvent();
   }
 
