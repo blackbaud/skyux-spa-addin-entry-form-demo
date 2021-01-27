@@ -3,10 +3,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyAvatarModule
-} from '@skyux/avatar';
-
-import {
   SkyNumericModule
 } from '@skyux/core';
 
@@ -15,36 +11,14 @@ import {
 } from '@skyux/datetime';
 
 import {
-  SkyI18nModule
-} from '@skyux/i18n';
-
-import {
-  SkyKeyInfoModule,
-  SkyLabelModule,
-  SkyWaitModule
-} from '@skyux/indicators';
-
-import {
-  SkyDefinitionListModule,
-  SkyPageSummaryModule
+  SkyDefinitionListModule
 } from '@skyux/layout';
-
-import {
-  SkyConfirmModule
-} from '@skyux/modals';
 
 @NgModule({
   exports: [
-    SkyAvatarModule,
-    SkyConfirmModule,
     SkyDatePipeModule,
     SkyDefinitionListModule,
-    SkyI18nModule,
-    SkyKeyInfoModule,
-    SkyLabelModule,
-    SkyNumericModule,
-    SkyPageSummaryModule,
-    SkyWaitModule
+    SkyNumericModule
   ]
 })
 export class AppSkyModule { }

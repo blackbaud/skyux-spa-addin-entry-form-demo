@@ -6,7 +6,6 @@ import {
   AddinClientService
 } from '@blackbaud/skyux-lib-addin-client';
 
-// Specify entry components, module-level providers, etc. here.
 import {
   AppSkyModule
 } from './app-sky.module';

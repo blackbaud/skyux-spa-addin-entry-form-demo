@@ -23,18 +23,18 @@ import {
 
 import {
   GiftFormData
-} from '../shared/interfaces/gift-form-data';
+} from './shared/interfaces/gift-form-data';
 
 import {
   GiftSaveData
-} from '../shared/interfaces/gift-save-data';
+} from './shared/interfaces/gift-save-data';
 
 import {
   EntryFormService
-} from '../shared/services/entry-form.service';
+} from './shared/services/entry-form.service';
 
 @Component({
-  selector: 'my-tab',
+  selector: 'app-my-tab',
   templateUrl: './my-tab.component.html',
   styleUrls: ['./my-tab.component.scss']
 })
