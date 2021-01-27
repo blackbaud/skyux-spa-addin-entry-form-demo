@@ -27,7 +27,7 @@ export class EntryFormService {
   constructor() {
   }
 
-  // Returns true after 3 seconds
+  // Returns true after 1 seconds
   public saveRecord(saveData: GiftSaveData, formData: GiftFormData): Observable<boolean> {
     return of(true).pipe(
       concatMap(item => of(item).pipe(
@@ -36,7 +36,7 @@ export class EntryFormService {
     );
   }
 
-  // Returns true after 3 seconds
+  // Returns true after 1 seconds
   public logCancel(): Observable<boolean> {
     return of(true).pipe(
       concatMap(item => of(item).pipe(

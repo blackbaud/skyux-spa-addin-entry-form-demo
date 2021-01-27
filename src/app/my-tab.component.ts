@@ -99,6 +99,8 @@ export class MyTabComponent implements OnInit, OnDestroy {
 
   private handleGiftFormCancelEvent(): void {
     // add the event handler for the gift form being canceled
+    // this event is not intended to interact with the user
+    // it is intended to allow for a third party to do something non-UI related
     this.addinClientService.addEventHandler('form-cancel').addinEvent.pipe(
       takeUntil(this.destroy)
     ).subscribe(addinEvent => {
@@ -118,6 +120,8 @@ export class MyTabComponent implements OnInit, OnDestroy {
 
   private handleGiftFormSaveEvent(): void {
     // add the event for the gift form being saved
+    // this event is not intended to interact with the user
+    // it is intended to allow for a third party to do something non-UI related
     this.addinClientService.addEventHandler('form-save').addinEvent.pipe(
       takeUntil(this.destroy)
     ).subscribe(addinEvent => {
