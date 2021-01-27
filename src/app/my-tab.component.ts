@@ -61,13 +61,13 @@ export class MyTabComponent implements OnInit, OnDestroy {
     this.initializeAddInClient();
 
     // capture the update events triggered from the gift form through the add in client
-    this.captureGiftFormUpdateEvent();
+    this.handleGiftFormUpdateEvent();
 
     // capture the cancel event triggered from the gift form through the add in client
-    this.captureGiftFormCancelEvent();
+    this.handleGiftFormCancelEvent();
 
     // capture the save event triggered from the gift form through the add in client
-    this.captureGiftFormSaveEvent();
+    this.handleGiftFormSaveEvent();
   }
 
   private initializeAddInClient(): void {
@@ -80,12 +80,12 @@ export class MyTabComponent implements OnInit, OnDestroy {
       // initialize the tab
       args.ready({
         showUI: true,
-        title: `My entry form Add-in tab`
+        title: `Entry form demo`
       });
     });
   }
 
-  private captureGiftFormUpdateEvent(): void {
+  private handleGiftFormUpdateEvent(): void {
     // add event for the form data being updated
     this.addinClientService.addEventHandler('form-data-update').addinEvent.pipe(
       takeUntil(this.destroy)
@@ -97,7 +97,7 @@ export class MyTabComponent implements OnInit, OnDestroy {
     });
   }
 
-  private captureGiftFormCancelEvent(): void {
+  private handleGiftFormCancelEvent(): void {
     // add the event handler for the gift form being canceled
     this.addinClientService.addEventHandler('form-cancel').addinEvent.pipe(
       takeUntil(this.destroy)
@@ -116,7 +116,7 @@ export class MyTabComponent implements OnInit, OnDestroy {
     });
   }
 
-  private captureGiftFormSaveEvent(): void {
+  private handleGiftFormSaveEvent(): void {
     // add the event for the gift form being saved
     this.addinClientService.addEventHandler('form-save').addinEvent.pipe(
       takeUntil(this.destroy)

@@ -22,6 +22,8 @@ import {
 
 @Injectable()
 export class EntryFormService {
+  private readonly delayInMilliseconds: number = 1000;
+
   constructor() {
   }
 
@@ -29,7 +31,7 @@ export class EntryFormService {
   public saveRecord(saveData: GiftSaveData, formData: GiftFormData): Observable<boolean> {
     return of(true).pipe(
       concatMap(item => of(item).pipe(
-        delay(3000)
+        delay(this.delayInMilliseconds)
       ))
     );
   }
@@ -38,7 +40,7 @@ export class EntryFormService {
   public logCancel(): Observable<boolean> {
     return of(true).pipe(
       concatMap(item => of(item).pipe(
-        delay(3000)
+        delay(this.delayInMilliseconds)
       ))
     );
   }
