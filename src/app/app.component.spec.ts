@@ -50,7 +50,7 @@ describe('AppComponent', () => {
     await router.navigate(['']);
 
     expect(
-      compiled.querySelector('.shell-wrapper .hello-test').textContent
+      compiled.querySelector('.hello-test').textContent
     ).toContain('Hello');
   });
 });
