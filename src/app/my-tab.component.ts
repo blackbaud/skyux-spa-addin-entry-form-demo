@@ -39,16 +39,16 @@ import {
   styleUrls: ['./my-tab.component.scss']
 })
 export class MyTabComponent implements OnInit, OnDestroy {
-  public environmentId: string;
-  public formData: GiftFormData;
-  public saveData: GiftSaveData;
-  private destroy: Subject<any>;
+  public environmentId: string | undefined;
+  public formData!: GiftFormData;
+  public saveData!: GiftSaveData;
+  private destroy: Subject<void>;
 
   constructor(
     private addinClientService: AddinClientService,
     private entryFormService: EntryFormService
   ) {
-    this.destroy = new Subject();
+    this.destroy = new Subject<void>();
   }
 
   public ngOnDestroy() {
@@ -110,7 +110,7 @@ export class MyTabComponent implements OnInit, OnDestroy {
       this.entryFormService.logCancel().pipe(
         finalize(() => {
           // always be sure to call done on this event to make sure the entry form is not blocked
-          addinEvent.done();
+          addinEvent.done?.();
         })
       ).subscribe(() => {
         console.log('client logged cancel successfully!');
@@ -134,7 +134,7 @@ export class MyTabComponent implements OnInit, OnDestroy {
       this.entryFormService.saveRecord(this.saveData, this.formData).pipe(
         finalize(() => {
           // always be sure to call done on this event to make sure the entry form is not blocked
-          addinEvent.done();
+          addinEvent.done?.();
         })
       ).subscribe(() => {
         console.log('client save form data successfully!');

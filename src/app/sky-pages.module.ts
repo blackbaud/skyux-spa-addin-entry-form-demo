@@ -28,6 +28,10 @@ import {
 } from '@skyux/assets';
 
 import {
+  SkyThemeService
+} from '@skyux/theme';
+
+import {
   MyTabComponent
 } from './my-tab.component';
 
@@ -84,7 +88,8 @@ import {
           return undefined;
         }
       }
-    }
+    },
+    SkyThemeService
   ]
 })
 export class SkyPagesModule { }
