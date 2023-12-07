@@ -115,9 +115,5 @@
         }
       }
     }
-  },
-  "defaultProject": "addin-entry-form-demo",
-  "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
   }
 }
