@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "addin-entry-form-demo:build:production"
+              "buildTarget": "addin-entry-form-demo:build:production"
             },
             "development": {
-              "browserTarget": "addin-entry-form-demo:build:development"
+              "buildTarget": "addin-entry-form-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "addin-entry-form-demo:build"
+            "buildTarget": "addin-entry-form-demo:build"
           }
         },
         "test": {
