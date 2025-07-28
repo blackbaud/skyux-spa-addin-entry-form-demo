@@ -34,9 +34,10 @@ import {
 } from './shared/services/entry-form.service';
 
 @Component({
-  selector: 'app-my-tab',
-  templateUrl: './my-tab.component.html',
-  styleUrls: ['./my-tab.component.scss']
+    selector: 'app-my-tab',
+    templateUrl: './my-tab.component.html',
+    styleUrls: ['./my-tab.component.scss'],
+    standalone: false
 })
 export class MyTabComponent implements OnInit, OnDestroy {
   public environmentId: string | undefined;
