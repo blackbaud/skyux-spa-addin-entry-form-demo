@@ -6,7 +6,8 @@
     entry form is modified.
   </p>
 
-  <sky-definition-list *ngIf="!!environmentId" labelWidth="200px">
+  @if (!!environmentId) {
+  <sky-definition-list labelWidth="200px">
     <sky-definition-list-heading>
       Add-in context
     </sky-definition-list-heading>
@@ -19,8 +20,10 @@
       </sky-definition-list-value>
     </sky-definition-list-content>
   </sky-definition-list>
+  }
 
-  <sky-definition-list *ngIf="!!formData" labelWidth="200px">
+  @if (!!formData) {
+  <sky-definition-list labelWidth="200px">
     <sky-definition-list-heading>
       Form data
     </sky-definition-list-heading>
@@ -73,5 +76,6 @@
       </sky-definition-list-value>
     </sky-definition-list-content>
   </sky-definition-list>
+  }
 
 </div>
