@@ -5,6 +5,6 @@ import {
 @Component({
     selector: 'app-not-found',
     templateUrl: './not-found.component.html',
-    standalone: false
+    standalone: true
 })
 export class NotFoundComponent { }

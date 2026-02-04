@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  inject
 } from '@angular/core';
 
 import {
@@ -37,18 +38,17 @@ import {
     selector: 'app-my-tab',
     templateUrl: './my-tab.component.html',
     styleUrls: ['./my-tab.component.scss'],
-    standalone: false
+    standalone: true
 })
 export class MyTabComponent implements OnInit, OnDestroy {
   public environmentId: string | undefined;
   public formData!: GiftFormData;
   public saveData!: GiftSaveData;
   private destroy: Subject<void>;
+  private addinClientService = inject(AddinClientService);
+  private entryFormService = inject(EntryFormService);
 
-  constructor(
-    private addinClientService: AddinClientService,
-    private entryFormService: EntryFormService
-  ) {
+  constructor() {
     this.destroy = new Subject<void>();
   }
 
