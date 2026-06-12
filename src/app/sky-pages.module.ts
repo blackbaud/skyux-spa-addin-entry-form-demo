@@ -59,13 +59,12 @@ import {
     ReactiveFormsModule,
     RouterModule,
     SkyAppLinkModule,
-    SkyI18nModule
-  ],
-  declarations: [
+    SkyI18nModule,
     MyTabComponent,
     NotFoundComponent,
     RootRouteIndexComponent
   ],
+  declarations: [],
   exports: [
     AppExtrasModule,
     MyTabComponent,

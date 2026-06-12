@@ -23,6 +23,22 @@ import {
 } from 'rxjs/operators';
 
 import {
+  SkyNumericModule
+} from '@skyux/core';
+
+import {
+  SkyDatePipeModule
+} from '@skyux/datetime';
+
+import {
+  SkyI18nModule
+} from '@skyux/i18n';
+
+import {
+  SkyDefinitionListModule
+} from '@skyux/layout';
+
+import {
   GiftFormData
 } from './shared/interfaces/gift-form-data';
 
@@ -38,7 +54,13 @@ import {
     selector: 'app-my-tab',
     templateUrl: './my-tab.component.html',
     styleUrls: ['./my-tab.component.scss'],
-    standalone: true
+    standalone: true,
+    imports: [
+      SkyDefinitionListModule,
+      SkyDatePipeModule,
+      SkyI18nModule,
+      SkyNumericModule
+    ]
 })
 export class MyTabComponent implements OnInit, OnDestroy {
   public environmentId: string | undefined;
