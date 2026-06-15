@@ -14,11 +14,16 @@ import {
 
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({ declarations: [
-        AppComponent
-    ],
-    bootstrap: [AppComponent], imports: [BrowserAnimationsModule,
+@NgModule({
+    declarations: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserAnimationsModule,
         SkyPagesModule,
         BrowserModule,
-        AppRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        AppRoutingModule,
+        AppComponent
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
 export class AppModule { }

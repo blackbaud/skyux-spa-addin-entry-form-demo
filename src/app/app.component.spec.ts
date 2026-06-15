@@ -28,9 +28,7 @@ describe('AppComponent', () => {
             component: AppRouteTestComponent,
             path: ''
           }
-        ])
-      ],
-      declarations: [
+        ]),
         MockShellComponent,
         AppRouteTestComponent,
         AppComponent
@@ -49,7 +47,11 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
 
     const router = TestBed.inject(Router);
+    fixture.detectChanges();
+    await fixture.whenStable();
     await router.navigate(['']);
+    fixture.detectChanges();
+    await fixture.whenStable();
 
     expect(
       compiled.querySelector('.hello-test').textContent
