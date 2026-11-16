@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -10,6 +11,7 @@ import {
     selector: 'app-root-route-index',
     templateUrl: './index.component.html',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MyTabComponent]
 })
 export class RootRouteIndexComponent { }

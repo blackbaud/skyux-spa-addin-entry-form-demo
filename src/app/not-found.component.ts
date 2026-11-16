@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -10,6 +11,7 @@ import {
     selector: 'app-not-found',
     templateUrl: './not-found.component.html',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [SkyI18nModule]
 })
 export class NotFoundComponent { }
