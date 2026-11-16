@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  inject
+  inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -55,6 +56,7 @@ import {
     templateUrl: './my-tab.component.html',
     styleUrls: ['./my-tab.component.scss'],
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
       SkyDefinitionListModule,
       SkyDatePipeModule,

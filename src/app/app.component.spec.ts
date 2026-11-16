@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'skyux-app-shell',
     template: '<div class="shell-wrapper"><ng-content></ng-content></div>',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 class MockShellComponent { }
@@ -15,6 +16,7 @@ class MockShellComponent { }
 @Component({
     selector: 'app-mock-shell',
     template: '<div class="hello-test">Hello</div>',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 class AppRouteTestComponent { }
